@@ -1,27 +1,11 @@
-# HttpStreamMemLeak
+Test to see if, when using only subscriptions on http observables, we can have memory leak. 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.5.
+Turns out that probably it's not the case since http streams always end (either in error or in complete).
 
-## Development server
+Mem screenshot when working with an interval stream:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+![interval](https://www.dropbox.com/s/b2fa6tc4bfpvd70/Screenshot%202017-11-08%2019.04.14.png?dl=0)
 
-## Code scaffolding
+Mem screenshot when working with an http stream:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+![interval](https://www.dropbox.com/s/fwmx41z84eq5roe/Screenshot%202017-11-08%2019.08.16.png?dl=0)
